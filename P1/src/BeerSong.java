@@ -2,6 +2,7 @@
  *
  * @author  Stepan M
  * @version 2022.09.09
+ * Весьма странная песня про бутылки пива на стене
  */
 public class BeerSong {
     public static void main(String[] args) {
@@ -13,7 +14,7 @@ public class BeerSong {
             if (beerNum == 1) {
                 word = "бутылка"; // В единственном сисле - ОДНА бутылка.
             }
-            System.out.println(beerNum + " " + word + " пива на стене");
+            //System.out.println(beerNum + " " + word + " пива на стене");
             System.out.println(beerNum + " " + word + " пива.");
             System.out.println("Возьми одну.");
             System.out.println("Пусти по кругу.");
