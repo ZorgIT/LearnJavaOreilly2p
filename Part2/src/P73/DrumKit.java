@@ -1,5 +1,10 @@
 package P73;
-
+/**
+ *
+ * @author  Stepan M
+ * @version 2022.09.14
+ * Задание типа "магинтик с кодом" - готовые куски когда собрать в работающую программу.
+ */
 class DrumKit {
     boolean topHat = false;
     boolean snare = false;
