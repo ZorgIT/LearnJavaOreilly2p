@@ -7,6 +7,11 @@
  *
  */
 public class SimpleDotCom {
+    int [] locationCells;
+    int numOfHits =0;
+    public void setLocationCells (int[] locs){
+        locationCells = locs;
+    }
 
     public String checkYourself(String stringGuess) {
 
@@ -40,5 +45,5 @@ public class SimpleDotCom {
         System.out.println(result);
         //¬озвращаем результат дл€ последующей обработки в вызывающий метод.
         return result;
-    }
-}
+    } //завершаем метод
+} //завершаем класс
