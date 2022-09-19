@@ -18,26 +18,24 @@ public class SimpleGotComGame {
         // Создаем объект
         SimpleDotCom theDotCom = new SimpleDotCom();
         //Загадываем для него местоположение (три последовательные ячейки в одном ряду).
-        int [] locations = {3,4,5};
+        int randomNum = (int) (Math.random() * 5);
+        int [] locations = {randomNum,randomNum + 1,randomNum +2};
         // Фиксируем положение в объекте.
         theDotCom.setLocationCells(locations);
         //Предложение пользователю сделать ход (вызов виртуальной процедуры)
-        System.out.println("Input your guess");
-
+        boolean isAlive = true;
         //Изначально наш метод воспринимает строковые данные, поэтому приводим рандом к нему.
-        String result ="";
         String userGuess;
-        while (theDotCom.numOfHits<3) {
-            userGuess = String.valueOf(0 + (int) (Math.random() * 5));
-            //Количество ходово
+        while (isAlive == true) {
+            String guess = helper.getUserInput ("Введите число");
+            String result = theDotCom.checkYourself(guess);
             numOfGuesses++;
-            System.out.println(userGuess);
-            theDotCom.checkYourself(userGuess);
-         }
-        System.out.println("You done it in " + numOfGuesses + " step");
+            if (result.equals("SINK")) {
+                isAlive = false;
+                System.out.println("You done it in " + numOfGuesses + " step");
+            } // end if
+         } // edn while
         //Нужна проверка дублирования ответов.
         //Нужна переменная  с размерностью поля, которая будет ограничивать область обстрела.
-
-    }
-
-}
+    } //end main
+} // end class
