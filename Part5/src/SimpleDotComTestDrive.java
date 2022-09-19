@@ -19,7 +19,7 @@ public class SimpleDotComTestDrive {
         //Делаем ход от имени пользователя
         String userGuess = "2";
         //Вызываем метод checkYourSelf() объекта SimpleDotCom
-        String result = dot.chekYourself(userGuess);
+        String result = dot.checkYourself(userGuess);
         String testResult = "Неудача";
 
         if (result.equals("Попал")) {
