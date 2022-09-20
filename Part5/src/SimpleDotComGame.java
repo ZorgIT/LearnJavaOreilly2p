@@ -6,7 +6,7 @@
  * Потопи сайт v 1.0.0
  * Создание модуля игры на основании всевдокода.
  */
-public class SimpleGotComGame {
+public class SimpleDotComGame {
     public static void main (String[] args) {
         //Объявляем переменную и инициализируем нулевым значением
         //Нулевое значение для корректности при перезапуске.
