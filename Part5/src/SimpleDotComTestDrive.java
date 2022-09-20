@@ -9,7 +9,7 @@
 public class SimpleDotComTestDrive {
     public static void main (String [] args ) {
         //—оздаем экземпл€р класса SimpleDotCom
-        SimpleDotCom dot = new SimpleDotCom();
+        DotCom dot = new DotCom();
 
         //—оздаем массив дл€ местоположени€ "—айта" (три последовательных числа из семи)
         int[] locations = {2, 3, 4};

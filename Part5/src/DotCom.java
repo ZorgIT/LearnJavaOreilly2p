@@ -6,7 +6,7 @@
  * Потопи сайт v 1.0.0
  *
  */
-public class SimpleDotCom {
+public class DotCom {
     int [] locationCells;
     int numOfHits =0;
     public void setLocationCells (int[] locs){

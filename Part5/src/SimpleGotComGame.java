@@ -16,7 +16,7 @@ public class SimpleGotComGame {
         GameHelper helper = new GameHelper();
 
         // Создаем объект
-        SimpleDotCom theDotCom = new SimpleDotCom();
+        DotCom theDotCom = new DotCom();
         //Загадываем для него местоположение (три последовательные ячейки в одном ряду).
         int randomNum = (int) (Math.random() * 5);
         int [] locations = {randomNum,randomNum + 1,randomNum +2};
