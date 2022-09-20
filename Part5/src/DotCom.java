@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 /**
  *
  * @author  Stepan M
@@ -7,43 +8,26 @@
  *
  */
 public class DotCom {
-    int [] locationCells;
-    int numOfHits =0;
-    public void setLocationCells (int[] locs){
-        locationCells = locs;
+    //int [] locationCells;
+    //int numOfHits =0;
+    private  ArrayList<String> locationCells;
+
+    public void setLocationCells (ArrayList<String> loc){
+        locationCells = loc;
     }
 
-    public String checkYourself(String stringGuess) {
+    public String checkYourself(String userInput) {
 
-        //Преобразование типа String в int
-        int guess = Integer.parseInt(stringGuess);
-
-        //Создание переменной для хранения результата который будем возвращать.
-        // По умолчанию присваиваем строковое значение "Мимо"
         String result = "Missed";
-
-       // повторяем с каждой ячейкой из массива locationCells (местоположение ячейки объекта).
-        for (int cell : locationCells) {
-           //Сравниваем ход пользователя с этим элементом (ячейкой) массива.
-            if (guess == cell) {
-                //Обнаруженно попадание.
-                result = "Got it!";
-                // зафиксированно попадаение
-                numOfHits++;
-                //выход из цикла (принудительный).
-                break;
+        int index = locationCells.indexOf(userInput);
+        if (index >= 0) {
+            locationCells.remove (index);
+            if (locationCells.isEmpty()) {
+                result = "Потопил";
+            } else  {
+                result = "Попал";
            } // end if
         }// end for
-
-        if (numOfHits == locationCells.length) {
-            //После выхода из цикла проверяем не потоплен ли "сайт"
-            //При подтверждении - фиксируем результат.
-            result = "SINK";
-        } // end if
-
-        //Вывод результа проверки пользователю - Мимо/Попал/Потопил.
-        System.out.println(result);
-        //Возвращаем результат для последующей обработки в вызывающий метод.
         return result;
     } //завершаем метод
 } //завершаем класс
