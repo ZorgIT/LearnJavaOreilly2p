@@ -11,9 +11,13 @@ public class DotCom {
     //int [] locationCells;
     //int numOfHits =0;
     private  ArrayList<String> locationCells;
-
+    private String name;
     public void setLocationCells (ArrayList<String> loc){
         locationCells = loc;
+    }
+    //Сеттер для имени сайта
+    public void setName (String name) {
+        this.name = name;
     }
 
     public String checkYourself(String userInput) {
@@ -23,9 +27,9 @@ public class DotCom {
         if (index >= 0) {
             locationCells.remove (index);
             if (locationCells.isEmpty()) {
-                result = "Потопил";
+                result = "Sink";
             } else  {
-                result = "Попал";
+                result = "Got it!";
            } // end if
         }// end for
         return result;
