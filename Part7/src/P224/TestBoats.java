@@ -17,29 +17,30 @@ public class TestBoats {
         b3.move();
         b2.move();
     }
-    class RowBoat extends  Boat{
-        public void rowTheBoat() {
-            System.out.println("Go, Natasha!");
-        }
+
+}
+class RowBoat extends  Boat{
+    public void rowTheBoat() {
+        System.out.println("Go, Natasha!");
+    }
+}
+
+class Boat {
+    private int length;
+    public void setLength(int len) {
+        length = len;
+    }
+    public int getLength() {
+        return length;
+    }
+    public void move () {
+        System.out.println("Dreif ");
     }
 
-    class Boat {
-        private int length;
-        public void setLength(int len) {
-            length = len;
-        }
-        public int getLength() {
-            return length;
-        }
-        public void move () {
-            System.out.println("Dreif ");
-        }
+}
 
-    }
-
-    class Sailboat extends  Boat{
-        public void move() {
-            System.out.println("Get the wind!");
-        }
+class Sailboat extends  Boat{
+    public void move() {
+        System.out.println("Get the wind!");
     }
 }
