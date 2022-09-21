@@ -51,7 +51,7 @@ public class DotComBust {
     void checkUserGuess(String userGuess) {
         //Просматривает все остальные объекты DotCom и вызывает каждый объект DotCom метода CheckYourself().
         numOfGuesses++;
-        String result = "Мимо";
+        String result = "Missed";
 
         for (DotCom dotComToTest:
              dotComsList) {
@@ -70,8 +70,19 @@ public class DotComBust {
     private void finishGame() {
         //Выводит на экран сообщение об успехах пользователя
         //основываясь на том за сколько ходов тот потопил все объекты
-
-
+        System.out.println("All \"site\" are sink!");
+        if (numOfGuesses <= 18) {
+            System.out.println("It has been only " + numOfGuesses + " turn!");
+            System.out.println("Some joke about dot.com crisis");
+        } else {
+            System.out.println("I has been to much time" + numOfGuesses + "turn.");
+            System.out.println("you not good");
+        }
+    }
+    public static void main (String[] args) {
+        DotComBust game = new DotComBust();
+        game.setUpGame();
+        game.startPlaying();
     }
 
 

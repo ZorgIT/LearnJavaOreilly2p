@@ -16,8 +16,8 @@ public class DotCom {
         locationCells = loc;
     }
     //Сеттер для имени сайта
-    public void setName (String name) {
-        this.name = name;
+    public void setName (String n) {
+        this.name = n;
     }
 
     public String checkYourself(String userInput) {
@@ -28,6 +28,7 @@ public class DotCom {
             locationCells.remove (index);
             if (locationCells.isEmpty()) {
                 result = "Sink";
+                System.out.println("Ouch! You sink" + name +" : ( " );
             } else  {
                 result = "Got it!";
            } // end if
