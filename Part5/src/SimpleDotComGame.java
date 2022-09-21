@@ -6,7 +6,7 @@
  * Потопи сайт v 1.0.0
  * Создание модуля игры на основании всевдокода.
  */
-public class SimpleGotComGame {
+public class SimpleDotComGame {
     public static void main (String[] args) {
         //Объявляем переменную и инициализируем нулевым значением
         //Нулевое значение для корректности при перезапуске.
@@ -16,12 +16,12 @@ public class SimpleGotComGame {
         GameHelper helper = new GameHelper();
 
         // Создаем объект
-        SimpleDotCom theDotCom = new SimpleDotCom();
+        DotCom theDotCom = new DotCom();
         //Загадываем для него местоположение (три последовательные ячейки в одном ряду).
         int randomNum = (int) (Math.random() * 5);
         int [] locations = {randomNum,randomNum + 1,randomNum +2};
         // Фиксируем положение в объекте.
-        theDotCom.setLocationCells(locations);
+        //theDotCom.setLocationCells(locations);
         //Предложение пользователю сделать ход (вызов виртуальной процедуры)
         boolean isAlive = true;
         //Изначально наш метод воспринимает строковые данные, поэтому приводим рандом к нему.

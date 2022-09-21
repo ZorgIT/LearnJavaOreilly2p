@@ -9,12 +9,12 @@
 public class SimpleDotComTestDrive {
     public static void main (String [] args ) {
         //Создаем экземпляр класса SimpleDotCom
-        SimpleDotCom dot = new SimpleDotCom();
+        DotCom dot = new DotCom();
 
         //Создаем массив для местоположения "Сайта" (три последовательных числа из семи)
         int[] locations = {2, 3, 4};
         //Вызываем сеттер "Сайта"
-        dot.setLocationCells(locations);
+        //dot.setLocationCells(locations);
 
         //Делаем ход от имени пользователя
         String userGuess = "2";
