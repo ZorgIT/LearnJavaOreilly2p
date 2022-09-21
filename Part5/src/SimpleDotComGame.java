@@ -21,7 +21,7 @@ public class SimpleDotComGame {
         int randomNum = (int) (Math.random() * 5);
         int [] locations = {randomNum,randomNum + 1,randomNum +2};
         // Фиксируем положение в объекте.
-        theDotCom.setLocationCells(locations);
+        //theDotCom.setLocationCells(locations);
         //Предложение пользователю сделать ход (вызов виртуальной процедуры)
         boolean isAlive = true;
         //Изначально наш метод воспринимает строковые данные, поэтому приводим рандом к нему.

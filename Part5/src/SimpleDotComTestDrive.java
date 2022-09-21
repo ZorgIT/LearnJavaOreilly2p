@@ -14,7 +14,7 @@ public class SimpleDotComTestDrive {
         //Создаем массив для местоположения "Сайта" (три последовательных числа из семи)
         int[] locations = {2, 3, 4};
         //Вызываем сеттер "Сайта"
-        dot.setLocationCells(locations);
+        //dot.setLocationCells(locations);
 
         //Делаем ход от имени пользователя
         String userGuess = "2";
