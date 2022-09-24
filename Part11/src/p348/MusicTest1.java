@@ -13,12 +13,12 @@ public class MusicTest1 {
         /*
         Нам нужен объект Sequncer, он синтезируют "композицию" из информации в формате MIDI.
         */
-
+        try {
             Sequencer sequencer = MidiSystem.getSequencer();
             System.out.println ("We got sequenser");
-
+        } catch (MidiUnavailableException ex) {
             System.out.println("Неудача");
-
+        }
 
     } // end play
 
