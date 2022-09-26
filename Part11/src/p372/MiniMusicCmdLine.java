@@ -8,6 +8,8 @@ import  javax.sound.midi.*;
  * Приложение для проигрывания звуков с параметрами через командную строку. v 0.1
  * P372
  */
+
+//PS D:\ALL\Step_Doc\_VLesson\_PROG\Java\LearnJavaOreilly2p\part11\src\p372> java .\MiniMusicCmdLine.java 40 70
 public class MiniMusicCmdLine {
         public  static void main (String [] args ){
             MiniMusicCmdLine mini = new MiniMusicCmdLine();
