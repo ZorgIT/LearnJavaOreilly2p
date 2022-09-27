@@ -32,7 +32,7 @@ public class SimpleGui1B implements ActionListener { //SimpleGui1B реализуем Act
         frame.setVisible(true);
     }
 
-    public void actionPerformed (ActionEvent event) { //Реализуем метод actionPerformed() интерфейса ActionListener.
+    public void actionPerformed (ActionEvent event) { //Реализуем метод actionPerformed() интерфейса ActionListener
         button.setText("I've been clicked!");
     }
 
