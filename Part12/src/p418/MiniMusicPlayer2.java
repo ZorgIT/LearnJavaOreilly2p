@@ -10,8 +10,10 @@ import javax.sound.midi.*;
  *
  * P420-421
 */
+//Пример использования статического метода MidiEvent
 
-public class MiniMusicPlayer2 implements ControllerEventListener {    //Пример использования статического метода MidiEvent
+//Нужно отслеживать события ControllerEvent, реализуем интерфейс слушателя
+public class MiniMusicPlayer2 implements ControllerEventListener {
     public static void main (String[] args) {
         MiniMusicPlayer2 mini = new MiniMusicPlayer2();
         mini.go();
@@ -22,6 +24,9 @@ public class MiniMusicPlayer2 implements ControllerEventListener {    //Пример и
             Sequencer sequencer = MidiSystem.getSequencer();
             sequencer.open();
 
+            //Регистрируем события синтезатором.Метод отвечающий за регистрацию,
+            // прнимает объект слушателя и целочисленный массив,
+            // представляющий собой списко событий ControllerEvent, которе нам нужны (конкретно сейчас  127)
             int[] eventsIWant = {127};
             sequencer.addControllerEventListener(this, eventsIWant);
 
@@ -30,6 +35,9 @@ public class MiniMusicPlayer2 implements ControllerEventListener {    //Пример и
 
             for (int i=5; i<60; i+= 4) {
                 track.add(makeEvent(144,1,i,100,i));
+                //В этом месте "Ловится ритм" - добавляется собственное событие (176 - тип события ControllerEvent)
+                //аргумент события 127 - ничего не делает, выставляется
+                // для возможнсоти реагировать на восрпоизведение ноты. (отслеживать)
                 track.add(makeEvent(176,1,127,0,i));
                 track.add(makeEvent(128,1,i,100,i+2));
             } //end for
@@ -38,6 +46,9 @@ public class MiniMusicPlayer2 implements ControllerEventListener {    //Пример и
             sequencer.start();
         } catch (Exception ex) {ex.printStackTrace();}
     } // end go() method
+
+    //Условный метод обработки события ( из интерфейса слушателя события ControllerEvent)
+    // При каждом отслеживания события 127 метод выполнится.
     public void controlChange (ShortMessage event) {
         System.out.println("ля");
     }
