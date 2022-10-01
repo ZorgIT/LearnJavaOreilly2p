@@ -11,7 +11,7 @@ import java.io.*;
  * P474-475
  */
 
-public class GameCharacter {
+public class GameCharacter implements Serializable{
 
     int power;
     String type;
