@@ -36,6 +36,7 @@ public class BeatBox {
         theFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         BorderLayout layout = new BorderLayout();
         JPanel background = new JPanel(layout);
+        //Пустая граница создает поля между краями панели и метом размещения компонентов
         background.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
         checkBoxList = new ArrayList<JCheckBox>();
@@ -73,6 +74,7 @@ public class BeatBox {
         mainPanel = new JPanel(grid);
         background.add(BorderLayout.CENTER, mainPanel);
 
+        //Создание флажков на панели с присвоением снятого положения.
         for (int i = 0; i < 256; i++) {
             JCheckBox c = new JCheckBox();
             c.setSelected(false);
@@ -88,6 +90,7 @@ public class BeatBox {
 
     } // end method
 
+    //Инициализация синтезатора, секвенсора и дорожки
     public void setUpMidi() {
         try {
             sequencer = MidiSystem.getSequencer();
@@ -102,37 +105,42 @@ public class BeatBox {
     }
 
     public  void buildTrackAndStart() {
+        //Массив из 16 элементов для хранения значения каждого инструмента.
         int[] trackList = null;
 
         sequence.deleteTrack(track);
         track = sequence.createTrack();
 
-        for (int i = 0; i < 16; i++) {
+        for (int i = 0; i < 16; i++) {    //Для каждого из 16 рядов
             trackList = new int[16];
 
-            int key = instruments[i];
 
-            for (int j = 0; j < 16 ; j++) {
+            int key = instruments[i]; //Задаем клавишу по инструменту.(В массиве числа для каждого инструмента)
+
+            for (int j = 0; j < 16 ; j++) { //Применить для каждого ряда
 
                 JCheckBox jc = (JCheckBox) checkBoxList.get(j +(16*i));
-                if (jc.isSelected()) {
-                    trackList[j] = key;
+                if (jc.isSelected()) { // Провека флажка на такте.
+                    trackList[j] = key; // устанавливаем в текущую ячейку массива
                 } else {
-                    trackList[j] = 0;
+                    trackList[j] = 0; //инструмент не играет
                 }
             }// end inner for j
 
-            makeTrack(trackList);
+            makeTrack(trackList); // для этого инструмента и для всех 16 тактов
+            // создаются события и добавляются на дорожку
             track.add(makeEvent(176,1,127,0,16));
         } // end outer for i
 
+        //Всегда нужно быть уверенным что событие на 16 такте существует
+        //Иначе может пройти  16 тактов, перед тем как заново начнется последовательность.
         track.add(makeEvent(192, 9, 1, 0 , 15));
         try {
 
             sequencer.setSequence(sequence);
-            sequencer.setLoopCount(sequencer.LOOP_CONTINUOUSLY);
+            sequencer.setLoopCount(sequencer.LOOP_CONTINUOUSLY); //Задает непрерывный цикл
             sequencer.start();
-            sequencer.setTempoInBPM(120);
+            sequencer.setTempoInBPM(120); // темп
 
         } catch (Exception e) {e.printStackTrace();}
     } // end buildTrackAndStart
@@ -168,8 +176,8 @@ public class BeatBox {
             int key = list[i];
 
             if (key != 0) {
-                track.add(makeEvent(144,9, key, 100, i));
-                track.add(makeEvent(128,9, key, 100, i+1));
+                track.add(makeEvent(144,9, key, 100, i)); //начать воспроизведение ноты
+                track.add(makeEvent(128,9, key, 100, i+1)); // окончание воспроизведения ноты
             }
         }
     } // end makeTrack;
