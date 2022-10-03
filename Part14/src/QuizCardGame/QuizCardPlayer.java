@@ -32,6 +32,7 @@ public class QuizCardPlayer {
     public void go() {
 
         frame = new JFrame("Quiz Card Player");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         JPanel mainPanel = new JPanel();
         Font bigFont = new Font ("sanserif", Font.BOLD, 24);
 
@@ -76,7 +77,7 @@ public class QuizCardPlayer {
 
                 } else {
                     //Карт больше нет
-                    display.setText("That wal ast card");
+                    display.setText("That was last card");
                     nextButton.setEnabled(false);
                 } // end if curCarInd
             } //end if ShowAnswer
