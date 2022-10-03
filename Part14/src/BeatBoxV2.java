@@ -220,7 +220,7 @@ public class BeatBoxV2 {
         public void actionPerformed(ActionEvent a ) {
             boolean[] checkboxState = null;
             try {
-                FileInputStream fileIn = new FileInputStream(new File(Checkbox.ser));
+                FileInputStream fileIn = new FileInputStream(new File("Checkbox.ser");
                 ObjectInputStream is = new ObjectInputStream(fileIn);
                 checkboxState = (boolean[])  is.readObject();
 
