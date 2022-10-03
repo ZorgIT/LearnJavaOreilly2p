@@ -3,6 +3,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 /**
@@ -191,6 +194,28 @@ public class BeatBoxV2 {
             event = new MidiEvent(a, tick);
         } catch (Exception e) {e.printStackTrace(); }
         return event;
+    }
+
+    public class MySendListener implements ActionListener {
+        public void actionPerformed(ActionEvent a) {
+
+            boolean [] checkboxState = new boolean[256];
+            for (int i = 0; i < 256; i++) {
+                JCheckBox chek = (JCheckBox) checkBoxList.get(i);
+                if (chek.isSelected()) {
+                    checkboxState[i]=true;
+                }
+
+            }
+
+            try {
+                FileOutputStream fileStream = new FileOutputStream(new File("Checkbox.ser"));
+                ObjectOutputStream os = new ObjectOutputStream(fileStream);
+                os.writeObject(checkboxState);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
     }
 
 } // end BeatBox
