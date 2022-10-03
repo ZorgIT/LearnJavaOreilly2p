@@ -31,8 +31,8 @@ public class QuizCardBuilder {
         //формируем GUI
 
         frame = new JFrame("Quiz Card Builder");
-        JPanel mainPanel = new JPanle();
-        Font bigFont = new Fon("sanserif", Font.BOLD, 24);
+        JPanel mainPanel = new JPanel();
+        Font bigFont = new Font("sanserif", Font.BOLD, 24);
         question = new JTextArea(6,20);
         question.setLineWrap(true);
         question.setWrapStyleWord(true);
@@ -95,7 +95,7 @@ public class QuizCardBuilder {
 
     public class  SaveMenuListener implements ActionListener {
         public void actionPerformed (ActionEvent ev) {
-            QuizCard card = new QUizCard(question.getText(), answer.getText());
+            QuizCard card = new QuizCard(question.getText(), answer.getText());
             cardList.add(card);
 
             //Вызывается диалогове окно и работа приостанавливается на этой строке,
@@ -126,10 +126,10 @@ public class QuizCardBuilder {
 
             //Перебор массива с картами и запись их по одной на строку, разделяя вопрос и ответ символом "/"
             for(QuizCard card:cardList) {
-                writer.write(card.getQuesction() + "/");
+                writer.write(card.getQuestion() + "/");
                 writer.write(card.getAnswer() + "\n");
             }
-            writer.close();;
+            writer.close();
 
         } catch (IOException ex) {
             System.out.println("couldn't write the cardList out");

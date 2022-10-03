@@ -47,7 +47,7 @@ public class QuizCardPlayer {
         nextButton = new JButton("Show Question");
         mainPanel.add(qScroller);
         mainPanel.add(nextButton);
-        nextButton.addActionListener((new QuizCardBuilder.NextCardListener()));
+        nextButton.addActionListener((new NextCardListener()));
 
         JMenuBar menuBar = new JMenuBar();
         JMenu fileMenu = new JMenu("File");
@@ -83,7 +83,7 @@ public class QuizCardPlayer {
         }
     } // end class NextCardListener
 
-    public class OpneMenuListener implements ActionListener {
+    public class OpenMenuListener implements ActionListener {
         public void actionPerformed(ActionEvent ev) {
             JFileChooser fileOpen= new JFileChooser();
             fileOpen.showOpenDialog(frame);
@@ -95,7 +95,7 @@ public class QuizCardPlayer {
 
         cardList = new ArrayList<QuizCard>();
         try {
-            BufferedReader reader = BufferedReader(new FileReader(file));
+            BufferedReader reader = new BufferedReader (new FileReader(file));
             String line = null;
             while ((line = reader.readLine()) != null ) {
                 makeCard(line);
