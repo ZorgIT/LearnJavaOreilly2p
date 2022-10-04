@@ -23,7 +23,7 @@ public class BeatBoxV2 {
     JFrame theFrame;
 
     //Массив наименования инструментов
-    String[] instrumentName = {"Bass Drum", "Closed Hi-Hat", "Open Hi-Hat", "Acoustc Snare",
+    String[] instrumentName = {"Bass Drum", "Closed Hi-Hat", "Open Hi-Hat", "Acoustic Snare",
             "Crash Cymbal", "Hand Clap", "High Tom", "Hi Bongo", "Maracas", "Whistle", "Low Conga",
             "Cowbell", "Vibraslap", "Lowmid Tom", "High Agogo", "Open Hi Conga"};
     //Барабанные клавиши
@@ -59,6 +59,14 @@ public class BeatBoxV2 {
         JButton downTempo = new JButton("Tempo down");
         downTempo.addActionListener(new MyDownTempoListener());
         buttonBox.add(downTempo);
+
+        JButton serialize= new JButton("serialize it");
+        serialize.addActionListener(new MySendListener());
+        buttonBox.add(serialize);
+
+        JButton restore =new JButton("restore");
+        restore.addActionListener(new MyReadInListener());
+        buttonBox.add(restore);
 
         Box nameBox = new Box(BoxLayout.Y_AXIS);
         for (int i = 0; i < 16; i++) {
@@ -207,9 +215,14 @@ public class BeatBoxV2 {
             }
 
             try {
-                FileOutputStream fileStream = new FileOutputStream(new File("Checkbox.ser"));
+
+                JFileChooser fileSave = new JFileChooser();
+                fileSave.showSaveDialog(theFrame);
+                //fileSave.getSelectedFile();
+                FileOutputStream fileStream = new FileOutputStream(fileSave.getSelectedFile());
                 ObjectOutputStream os = new ObjectOutputStream(fileStream);
                 os.writeObject(checkboxState);
+
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
@@ -220,7 +233,9 @@ public class BeatBoxV2 {
         public void actionPerformed(ActionEvent a ) {
             boolean[] checkboxState = null;
             try {
-                FileInputStream fileIn = new FileInputStream(new File("Checkbox.ser");
+                JFileChooser fileOpen = new JFileChooser();
+                fileOpen.showOpenDialog(theFrame);
+                FileInputStream fileIn = new FileInputStream(fileOpen.getSelectedFile());
                 ObjectInputStream is = new ObjectInputStream(fileIn);
                 checkboxState = (boolean[])  is.readObject();
 
