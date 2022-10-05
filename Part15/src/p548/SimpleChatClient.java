@@ -32,7 +32,7 @@ public class SimpleChatClient {
     public  void go () {
         JFrame frame = new JFrame("Ludicrously Simple Chat Client");
         JPanel mainPanel = new JPanel();
-        incoming = new JTextArea(15,50);
+        incoming = new JTextArea(15,30);
         incoming.setLineWrap(true);
         incoming.setWrapStyleWord(true);
         incoming.setEditable(false);
@@ -52,7 +52,7 @@ public class SimpleChatClient {
 
 
         frame.getContentPane().add(BorderLayout.CENTER, mainPanel);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(400, 500);
         frame.setVisible(true);
     } // end go() method
@@ -85,12 +85,12 @@ public class SimpleChatClient {
 
     public class  IncomingReader implements Runnable {
         public void run () {
-            String message;
+            String message2;
             try {
 
-                while  ((message = reader.readLine()) != null) {
-                    System.out.println("read " + message);
-                    incoming.append(message + "\n");
+                while  ((message2 = reader.readLine()) != null) {
+                    System.out.println("read " + message2);
+                    incoming.append(message2 + "\n");
                 }
 
             } catch (Exception ex) { ex.printStackTrace();}
