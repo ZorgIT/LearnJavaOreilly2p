@@ -45,3 +45,38 @@ public class Jukebox1 {
         songList.add(tokens[0]); //Нам нужно только название песни, поэтому добавляем в songList только первую лексему.
     }
 }
+
+class Song {
+    String title;
+    String artist;
+    String rating;
+    String bpm;
+
+    Song (String t, String a, String r,String b) {
+        //Переменные которые передатся в конструктор при создании нового объекта Song
+        title =t;
+        artist = a;
+        rating = r;
+        bpm = b;
+    }
+
+    public String getTitle() {
+        return  title;
+    }
+
+    public String getArtist() {
+        return  artist;
+    }
+
+    public  String getRating() {
+        return rating;
+    }
+    public  String getBpm() {
+        return bpm;
+    }
+
+    //Переопредлеение toString(),
+    public String toString() {
+        return title;
+    }
+}
