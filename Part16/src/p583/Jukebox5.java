@@ -13,13 +13,13 @@ import java.util.Collections;
  * P560
  */
 
-public class Jukebox3 {
+public class Jukebox5 {
 
     //Для храненеия наименоавний песен
     ArrayList<Song> songList = new ArrayList<Song>();
 
     public static void main (String[] args){
-        new Jukebox3().go();
+        new Jukebox5().go();
     }
 
     public void go() {
