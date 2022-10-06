@@ -1,6 +1,6 @@
 package p560;
 
-ipmrot java.util.*;
+import java.util.*;
 import java.io.*;
 import java.util.ArrayList;
 
@@ -22,7 +22,11 @@ public class Jukebox1 {
 
     public void go() {
         getSongs();
+        //¬ыводи песни в том пор€дке, в котором они были добавлены
         System.out.println(songList);
+        Collections.sort(songList);
+        System.out.println(songList);
+
     }
 
     void getSongs() {
@@ -38,6 +42,6 @@ public class Jukebox1 {
 
     void addSong(String lineToParse) {
         String[] tokens = lineToParse.split("/");
-        songList.add(tokens[0]);
+        songList.add(tokens[0]); //Ќам нужно только название песни, поэтому добавл€ем в songList только первую лексему.
     }
 }
