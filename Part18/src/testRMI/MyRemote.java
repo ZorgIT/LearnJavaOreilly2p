@@ -1,5 +1,7 @@
 package testRMI;
 
+import java.rmi.*;
+
 /**
  *
  * @author  Stepan M
@@ -7,5 +9,8 @@ package testRMI;
  * Серверный код - тестирование RMI
  */
 
-public class MyRemote {
+public interface MyRemote extends Remote { //Интрефейс должен быть унаследован от java.rmi.Remote
+
+    public String sayHello() throws RemoteException;
+
 }
